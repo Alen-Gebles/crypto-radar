@@ -1,7 +1,7 @@
 function MainContent(){
   return(
   <>
-  <section className="h-screen flexThree border_right">
+  <section className="h-screen width_100vw lg:flexThree">
     
   </section>
   </>

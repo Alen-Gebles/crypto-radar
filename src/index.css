@@ -16,13 +16,31 @@ body{
 }
 
 @layer utilities{
-  .border_right{
-    border-right: 1px solid var(--border-clr);
+  .border_left{
+    border-left: 1px solid var(--border-clr);
   }
   .flexOne{
     width: 25vw;
   }
   .flexThree{
     width: 75vw;
+  }
+  .width_100vw{
+    width: 100vw;
+  }
+  .side_width{
+    width: 350px;
+  }
+  .transition_main{
+    transition: transform 350ms ease-in-out;
+  }
+}
+@media (min-width: 1024px) {
+  #sideNav {
+    transform: translateX(0%) !important;
+  }
+
+  #hamburger {
+    transform: translateX(0%) !important;
   }
 }
