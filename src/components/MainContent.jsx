@@ -1,4 +1,5 @@
 import ApiFetcherComponent from './ApiFetch';
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 
 
@@ -16,6 +17,10 @@ function MainContent({ selectedCoin }){
     const interval = setInterval(fetchData, 60000);
     return () => clearInterval(interval);
   }, []);
+
+  if (!selectedCoin) {
+    return <div className='spinnyThingy'></div>;
+  }
 
   return(
   <>
@@ -53,6 +58,16 @@ function MainContent({ selectedCoin }){
   )
 }
 
-
+MainContent.propTypes = {
+  selectedCoin: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    symbol: PropTypes.string,
+    current_price: PropTypes.number,
+    price_change_percentage_24h: PropTypes.number,
+    market_cap: PropTypes.number,
+    // Add other properties as needed
+  }).isRequired,
+};
 
 export default MainContent

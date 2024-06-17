@@ -4,6 +4,7 @@
 
 :root{
   --border-clr:#363a45;
+  --bg-clr:#151520;
 }
 
 body{
@@ -39,6 +40,17 @@ body{
   }
   .transition_main{
     transition: transform 350ms ease-in-out;
+  }
+  .spinnyThingy{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 100vh;
+    background-color: red;
+    /*background-color: var(--bg-clr);*/
   }
 }
 @media (min-width: 1024px) {
