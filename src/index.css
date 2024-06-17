@@ -16,8 +16,14 @@ body{
 }
 
 @layer utilities{
+  .bg_clr{
+    background-color: #151520;
+  }
   .border_left{
     border-left: 1px solid var(--border-clr);
+  }
+  .border_right{
+    border-right: 1px solid var(--border-clr);
   }
   .flexOne{
     width: 25vw;

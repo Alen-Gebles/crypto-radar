@@ -1,11 +1,58 @@
-function MainContent(){
+import ApiFetcherComponent from './ApiFetch';
+import React, { useState, useEffect } from 'react';
+
+
+function MainContent({ selectedCoin }){
+  const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&x_cg_demo_api_key=CG-GuDAMUsCf3yFL8LqvPfPC28H';
+  const { data, isLoading, error } = ApiFetcherComponent({ apiUrl });
+  const [lastUpdated, setLastUpdated] = useState(Date.now());
+
+  const fetchData = () => {
+    ApiFetcherComponent({ apiUrl });
+    setLastUpdated(Date.now());
+  };
+
+  useEffect(() => {
+    const interval = setInterval(fetchData, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   return(
   <>
-  <section className="h-screen width_100vw lg:flexThree">
-    
+  <section className="h-screen width_100vw lg:flexThree p-6 pt-12">
+    <div>
+      <div className='flex items-center justify-between'>
+        <div>
+            <div className='flex items-center text-white'>
+              <img className='w-14 h-auto' src={selectedCoin.image} alt={selectedCoin.name} />
+              <h3 className='text-3xl font-semibold ml-4 mr-2'>{selectedCoin.name}</h3>
+              <p className='text-lg text-gray-300'>({selectedCoin.symbol.toUpperCase()})</p>
+            </div>
+        </div>
+        <div className='flex items-center gap-4 text-white'>
+          <h3 className='text-3xl font-semibold'>${selectedCoin.current_price.toLocaleString()}</h3>
+          <p className={`px-2 py-0.5 rounded-full bg-red-600 text-sm ${selectedCoin.price_change_percentage_24h >= 0 ? 'bg-green-600' : 'bg-red-600'}`}>
+            {selectedCoin.price_change_percentage_24h.toFixed(2)}%
+          </p>
+        </div>
+      </div>
+
+      <div className='w-full h-48 p-5 flex items-center justify-between gap-3 bg-gray-800 my-10 rounded-2xl'>
+        <div className='w-full h-full border_right'>
+          <p>Market Cap</p>
+          <p>$ {selectedCoin.market_cap.toLocaleString()}</p>
+          <p></p>
+        </div>
+        <div className='w-full h-full border_right'></div>
+        <div className='w-full h-full border_right'></div>
+        <div className='w-full h-full'></div>
+      </div>
+    </div>
   </section>
   </>
   )
 }
+
+
 
 export default MainContent
