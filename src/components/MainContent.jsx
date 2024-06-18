@@ -26,7 +26,7 @@ function MainContent({ selectedCoin }){
   <>
   <section className="h-screen width_100vw lg:flexThree p-6 pt-12">
     <div>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between flex-col gap-4 md:flex-row'>
         <div>
             <div className='flex items-center text-white'>
               <img className='w-14 h-auto' src={selectedCoin.image} alt={selectedCoin.name} />
@@ -42,33 +42,33 @@ function MainContent({ selectedCoin }){
         </div>
       </div>
 
-      <div className='w-full h-32 p-5 flex items-center justify-between gap-3 bg-gray-800 my-10 rounded-2xl'>
-        <div className='w-full h-full border_right text-white'>
+      <div className='w-full h-auto grid-row gap-3 my-10'>
+        <div className='w-full h-full text-white bg-gray-800  rounded-2xl  h-32 p-5'>
           <p className='text-left text-sm'>Market Cap</p>
           <p className='text-lg whitespace-nowrap my-3'><span className='text-slate-500 text-xl'>$</span> {selectedCoin.market_cap.toLocaleString()}</p>
           <p className={`w-fit rounded-full text-red-600 text-sm ${selectedCoin.price_change_percentage_24h >= 0 ? 'text-green-600' : 'text-red-600'}`}>
             {selectedCoin.market_cap_change_percentage_24h.toFixed(2)}%
           </p>
         </div>
-        <div className='w-full h-full border_right text-white'>
+        <div className='w-full h-full text-white bg-gray-800  rounded-2xl  h-32 p-5'>
           <p className='text-left text-sm'>Volume</p>
           <p className='text-lg whitespace-nowrap my-3'><span className='text-slate-500 text-xl'>$</span> {selectedCoin.total_volume.toLocaleString()}</p>
           <p className={`w-fit rounded-full text-red-600 text-sm ${selectedCoin.price_change_percentage_24h >= 0 ? 'text-green-600' : 'text-red-600'}`}>
             {selectedCoin.market_cap_change_percentage_24h.toFixed(2)}%
           </p>
         </div>
-        <div className='w-full h-full border_right text-white'>
+        <div className='w-full h-full text-white bg-gray-800  rounded-2xl  h-32 p-5'>
           <p className='text-left text-sm'>Max Supply</p>
           <p className='text-lg whitespace-nowrap my-3'>{selectedCoin.total_supply} {selectedCoin.symbol.toUpperCase()}</p>
         </div>
-        <div className='w-full h-full text-white'>
+        <div className='w-full h-full text-white bg-gray-800  rounded-2xl h-32 p-5'>
           <p className='text-left text-sm'>Circulating Supply</p>
           <p className='text-lg whitespace-nowrap my-3'>{selectedCoin.circulating_supply} {selectedCoin.symbol.toUpperCase()}</p>
         </div>
       </div>
     </div>
 
-    <div className='w-full h-4/6 border-full flex items-center justify-center text-white text-3xl'>FREE TRIAL EXPIRED, SORRY :(</div>
+    <div className='w-full h-4/6 border-full flex items-center justify-center text-white text-1xl mb-10'>FREE TRIAL EXPIRED, SORRY :(</div>
   </section>
   </>
   )

@@ -13,7 +13,7 @@ body{
   height: 100vh;
   background-color: #151520;
   font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 @layer utilities{
@@ -54,6 +54,12 @@ body{
   }
   .border-full{
     border: 1px solid var(--border-clr);
+  }
+  .grid-row{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, auto);
+    gap: 10px;
   }
 }
 @media (min-width: 1024px) {
