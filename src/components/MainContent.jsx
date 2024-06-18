@@ -42,15 +42,29 @@ function MainContent({ selectedCoin }){
         </div>
       </div>
 
-      <div className='w-full h-48 p-5 flex items-center justify-between gap-3 bg-gray-800 my-10 rounded-2xl'>
-        <div className='w-full h-full border_right'>
-          <p>Market Cap</p>
-          <p>$ {selectedCoin.market_cap.toLocaleString()}</p>
-          <p></p>
+      <div className='w-full h-32 p-5 flex items-center justify-between gap-3 bg-gray-800 my-10 rounded-2xl'>
+        <div className='w-full h-full border_right text-white'>
+          <p className='text-left text-sm'>Market Cap</p>
+          <p className='text-lg whitespace-nowrap my-3'><span className='text-slate-500 text-xl'>$</span> {selectedCoin.market_cap.toLocaleString()}</p>
+          <p className={`w-fit rounded-full text-red-600 text-sm ${selectedCoin.price_change_percentage_24h >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+            {selectedCoin.market_cap_change_percentage_24h.toFixed(2)}%
+          </p>
         </div>
-        <div className='w-full h-full border_right'></div>
-        <div className='w-full h-full border_right'></div>
-        <div className='w-full h-full'></div>
+        <div className='w-full h-full border_right text-white'>
+          <p className='text-left text-sm'>Volume</p>
+          <p className='text-lg whitespace-nowrap my-3'><span className='text-slate-500 text-xl'>$</span> {selectedCoin.total_volume.toLocaleString()}</p>
+          <p className={`w-fit rounded-full text-red-600 text-sm ${selectedCoin.price_change_percentage_24h >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+            {selectedCoin.market_cap_change_percentage_24h.toFixed(2)}%
+          </p>
+        </div>
+        <div className='w-full h-full border_right text-white'>
+          <p className='text-left text-sm'>Max Supply</p>
+          <p className='text-lg whitespace-nowrap my-3'>{selectedCoin.total_supply} {selectedCoin.symbol.toUpperCase()}</p>
+        </div>
+        <div className='w-full h-full border_right text-white'>
+          <p className='text-left text-sm'>Circulating Supply</p>
+          <p className='text-lg whitespace-nowrap my-3'>{selectedCoin.circulating_supply} {selectedCoin.symbol.toUpperCase()}</p>
+        </div>
       </div>
     </div>
   </section>
