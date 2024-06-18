@@ -52,6 +52,9 @@ body{
     background-color: red;
     /*background-color: var(--bg-clr);*/
   }
+  .border-full{
+    border: 1px solid var(--border-clr);
+  }
 }
 @media (min-width: 1024px) {
   #sideNav {

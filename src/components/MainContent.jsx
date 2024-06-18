@@ -61,12 +61,14 @@ function MainContent({ selectedCoin }){
           <p className='text-left text-sm'>Max Supply</p>
           <p className='text-lg whitespace-nowrap my-3'>{selectedCoin.total_supply} {selectedCoin.symbol.toUpperCase()}</p>
         </div>
-        <div className='w-full h-full border_right text-white'>
+        <div className='w-full h-full text-white'>
           <p className='text-left text-sm'>Circulating Supply</p>
           <p className='text-lg whitespace-nowrap my-3'>{selectedCoin.circulating_supply} {selectedCoin.symbol.toUpperCase()}</p>
         </div>
       </div>
     </div>
+
+    <div className='w-full h-4/6 border-full flex items-center justify-center text-white text-3xl'>FREE TRIAL EXPIRED, SORRY :(</div>
   </section>
   </>
   )
